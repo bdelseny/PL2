@@ -32,7 +32,7 @@ public class EnsembleDeLettres {
     
     /**
      * Affiche l'ensemble de lettres
-     * @return {e,n,s,e,m,b,l,e}
+     * @return {e,n,s,e,m,b,l,e}  l'ensemble de lettres
      */
     @Override
     public String toString() {
@@ -44,72 +44,72 @@ public class EnsembleDeLettres {
      * @return booléen  vrai si ensemble vide
      */
     public boolean estVide(){
-        return ;
+        return false;
     }
     
     /**
      * Cardinal de l'ensemble (nombre d'éléments)
-     * @return entier
+     * @return entier  cardinal de l'ensemble
      */
     public int cardinal(){
-        return ;
+        return 0;
     }
     
     /**
      * Test l'inclusion de l'ensemble dans un autre ensemble
-     * @param e
+     * @param e  l'ensemble à tester
      * @return booléen  vrai si l'ensemble est inclut dans l'autre ensemble
      */
     public boolean inclusion(EnsembleDeLettres e){
-        return ;
+        return false;
     }
     
     /**
      * Test si la lettre spécifiée est présente dans l'ensemble
-     * @param l
+     * @param l  lettre à tester
      * @return booléen  vrai si la lettre est présente dans l'ensemble
      */
     public boolean estPresente(char l){
-        return ;
+        return false;
     }
     
     /**
      * Génère l'ensemble d'intersection entre
      * l'ensemble courant et un autre ensemble
-     * @param e
+     * @param e  l'autre ensemble
      * @return EnsembleDeLettres est l'intersection des deux ensembles
      */
     public EnsembleDeLettres creerIntersection(EnsembleDeLettres e){
-        return ;
+        return null;
     }
     
     /**
      * Génère un ensemble d'union entre
      * l'ensemble courant et un autre ensemble
-     * @param e
+     * @param e  l'autre ensemble
      * @return EnsembleDeLettres est l'union des deux ensembles
      */
     public EnsembleDeLettres creerUnion(EnsembleDeLettres e){
-        return ;
+        return null;
     }
     
     /**
      * Génère un ensemble de différence entre
      * l'ensemble courant et un autre ensemble
-     * @param e
+     * @param e  l'autre ensemble
      * @return EsembleDeLettres est la différence des deux ensembles
      */
     public EnsembleDeLettres creerDifference(EnsembleDeLettres e){
-        return ;
+        return null;
     }
     
     /**
      * Génère un ensemble d'union disjointe entre
      * l'ensemble courant et un autre ensemble
-     * @param e
+     * @param e  l'autre ensemble
      * @return EsembleDeLettres est l'union disjointe des deux ensembles
      */
     public EnsembleDeLettres creerUnionDisjointe(EnsembleDeLettres e){
-        return ;
+        return null;
     }
 }
