@@ -83,6 +83,33 @@ public class EnsembleDeLettres {
         return ;
     }
     
+    /**
+     * Génère un ensemble d'union entre
+     * l'ensemble courant et un autre ensemble
+     * @param e
+     * @return EnsembleDeLettres est l'union des deux ensembles
+     */
+    public EnsembleDeLettres creerUnion(EnsembleDeLettres e){
+        return ;
+    }
     
+    /**
+     * Génère un ensemble de différence entre
+     * l'ensemble courant et un autre ensemble
+     * @param e
+     * @return EsembleDeLettres est la différence des deux ensembles
+     */
+    public EnsembleDeLettres creerDifference(EnsembleDeLettres e){
+        return ;
+    }
     
+    /**
+     * Génère un ensemble d'union disjointe entre
+     * l'ensemble courant et un autre ensemble
+     * @param e
+     * @return EsembleDeLettres est l'union disjointe des deux ensembles
+     */
+    public EnsembleDeLettres creerUnionDisjointe(EnsembleDeLettres e){
+        return ;
+    }
 }
