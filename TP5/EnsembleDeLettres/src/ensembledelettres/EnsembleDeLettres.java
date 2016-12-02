@@ -57,10 +57,10 @@ public class EnsembleDeLettres {
     
     /**
      * Test l'inclusion de l'ensemble dans un autre ensemble
-     * @param e1
+     * @param e
      * @return booléen  vrai si l'ensemble est inclut dans l'autre ensemble
      */
-    public boolean inclusion(EnsembleDeLettres e1){
+    public boolean inclusion(EnsembleDeLettres e){
         return ;
     }
     
@@ -72,6 +72,17 @@ public class EnsembleDeLettres {
     public boolean estPresente(char l){
         return ;
     }
+    
+    /**
+     * Génère l'ensemble d'intersection entre
+     * l'ensemble courant et un autre ensemble
+     * @param e
+     * @return EnsembleDeLettres est l'intersection des deux ensembles
+     */
+    public EnsembleDeLettres creerIntersection(EnsembleDeLettres e){
+        return ;
+    }
+    
     
     
 }
