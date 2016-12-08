@@ -41,7 +41,6 @@ public class EnsembleDeLettres {
     public EnsembleDeLettres(boolean vide) {
         present = new boolean[26];
         if (!vide) {
-            int a;
             for (int i = 0; i < 26; i++) {
                 present[i] = Math.round(Math.random()) == 1;
             }
@@ -70,12 +69,22 @@ public class EnsembleDeLettres {
     @Override
     public String toString() {
         char lettre;
+        int i = 0;
         String ensemble = new String();
-        for (int i = 0; i < 26; i++) {
+        while (i < 26 && !present[i]) {
+            i++;
+        }
+        if (i < 26) {
+            lettre = intToChar(i);
+            ensemble += lettre;
+            i++;
+        }
+        while (i < 26) {
             if (present[i]) {
                 lettre = intToChar(i);
-                ensemble = ensemble + lettre + ",";
+                ensemble += ", " + lettre;
             }
+            i++;
         }
         return "{" + ensemble + "}";
     }
@@ -86,7 +95,11 @@ public class EnsembleDeLettres {
      * @return booléen vrai si ensemble vide
      */
     public boolean estVide() {
-        return false;
+        int i = 0;
+        while (i < 26 && !present[i]) {
+            i++;
+        }
+        return !(i < 26);
     }
 
     /**
@@ -95,17 +108,29 @@ public class EnsembleDeLettres {
      * @return entier cardinal de l'ensemble
      */
     public int cardinal() {
-        return 0;
+        int c = 0;
+        for (int i = 0; i < 26; i++) {
+            if (present[i]) {
+                c++;
+            }
+        }
+        return c;
     }
 
     /**
      * Test l'inclusion de l'ensemble dans un autre ensemble
      *
-     * @param e l'ensemble à tester
-     * @return booléen vrai si l'ensemble est inclut dans l'autre ensemble
+     * @param e l'ensemble
+     * @return booléen vrai si l'ensemble est inclut dans e
      */
     public boolean inclusion(EnsembleDeLettres e) {
-        return false;
+        boolean A = true;
+        for (int i = 0; i < 26; i++) {
+            if (this.present[i] && !e.present[i]) {
+                A = false;
+            }
+        }
+        return A;
     }
 
     /**
@@ -115,7 +140,8 @@ public class EnsembleDeLettres {
      * @return booléen vrai si la lettre est présente dans l'ensemble
      */
     public boolean estPresente(char l) {
-        return false;
+        int a = charToInt(l);
+        return present[a];
     }
 
     /**
@@ -126,7 +152,11 @@ public class EnsembleDeLettres {
      * @return EnsembleDeLettres est l'intersection des deux ensembles
      */
     public EnsembleDeLettres creerIntersection(EnsembleDeLettres e) {
-        return null;
+        EnsembleDeLettres sortie = new EnsembleDeLettres(true);
+        for (int i = 0; i < 26; i++) {
+            sortie.present[i] = this.present[i] && e.present[i];
+        }
+        return sortie;
     }
 
     /**
@@ -136,7 +166,11 @@ public class EnsembleDeLettres {
      * @return EnsembleDeLettres est l'union des deux ensembles
      */
     public EnsembleDeLettres creerUnion(EnsembleDeLettres e) {
-        return null;
+        EnsembleDeLettres sortie = new EnsembleDeLettres(true);
+        for (int i = 0; i < 26; i++) {
+            sortie.present[i] = this.present[i] || e.present[i];
+        }
+        return sortie;
     }
 
     /**
@@ -147,7 +181,15 @@ public class EnsembleDeLettres {
      * @return EsembleDeLettres est la différence des deux ensembles
      */
     public EnsembleDeLettres creerDifference(EnsembleDeLettres e) {
-        return null;
+        EnsembleDeLettres inter = this.creerIntersection(e);
+        EnsembleDeLettres sortie = new EnsembleDeLettres(true);
+        for (int i = 0; i < 26; i++) {
+            sortie.present[i] = this.present[i];
+            if (inter.present[i]) {
+                sortie.present[i] = false;
+            }
+        }
+        return sortie;
     }
 
     /**
@@ -158,6 +200,16 @@ public class EnsembleDeLettres {
      * @return EsembleDeLettres est l'union disjointe des deux ensembles
      */
     public EnsembleDeLettres creerUnionDisjointe(EnsembleDeLettres e) {
-        return null;
+        EnsembleDeLettres union = this.creerUnion(e);
+        EnsembleDeLettres inter = this.creerIntersection(e);
+        EnsembleDeLettres sortie = new EnsembleDeLettres(true);
+        for (int i = 0; i < 26; i++) {
+            sortie.present[i] = union.present[i];
+            if (inter.present[i]) {
+                sortie.present[i] = false;
+            }
+        }
+        return sortie;
     }
+
 }
