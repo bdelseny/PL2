@@ -27,7 +27,7 @@ public class JeuChenille {
         laFenetre.setVisible(true);
 
         // creation d'un objet Tableau de chenilles
-        int n = 100;
+        int n = 500;
         Chenille[] chen = new Chenille[n];
 
         // ajout de cet objet à la zone de dessin
